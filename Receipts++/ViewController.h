@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@import CoreData;
 
 @interface ViewController : UIViewController
 <
@@ -14,6 +15,10 @@ UITableViewDelegate,
 UITableViewDataSource
 >
 
+@property (nonatomic, strong) NSPersistentContainer* persistentContainer;
+
+
+- (void)saveContext;
 
 @end
 
