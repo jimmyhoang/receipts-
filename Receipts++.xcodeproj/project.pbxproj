@@ -14,6 +14,7 @@
 		FF6D7F7D1EFC45C9006B6368 /* Receipts__.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF6D7F7B1EFC45C9006B6368 /* Receipts__.xcdatamodeld */; };
 		FF6D7F7F1EFC45C9006B6368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF6D7F7E1EFC45C9006B6368 /* Assets.xcassets */; };
 		FF6D7F821EFC45C9006B6368 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF6D7F801EFC45C9006B6368 /* LaunchScreen.storyboard */; };
+		FF6D7F8B1EFC4D4B006B6368 /* AddReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6D7F8A1EFC4D4B006B6368 /* AddReceiptViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,8 @@
 		FF6D7F7E1EFC45C9006B6368 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF6D7F811EFC45C9006B6368 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF6D7F831EFC45C9006B6368 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF6D7F891EFC4D4B006B6368 /* AddReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddReceiptViewController.h; sourceTree = "<group>"; };
+		FF6D7F8A1EFC4D4B006B6368 /* AddReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReceiptViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +67,9 @@
 				FF6D7F731EFC45C9006B6368 /* AppDelegate.m */,
 				FF6D7F751EFC45C9006B6368 /* ViewController.h */,
 				FF6D7F761EFC45C9006B6368 /* ViewController.m */,
+				FF6D7F891EFC4D4B006B6368 /* AddReceiptViewController.h */,
+				FF6D7F8A1EFC4D4B006B6368 /* AddReceiptViewController.m */,
 				FF6D7F781EFC45C9006B6368 /* Main.storyboard */,
-				FF6D7F7E1EFC45C9006B6368 /* Assets.xcassets */,
-				FF6D7F801EFC45C9006B6368 /* LaunchScreen.storyboard */,
-				FF6D7F831EFC45C9006B6368 /* Info.plist */,
 				FF6D7F7B1EFC45C9006B6368 /* Receipts__.xcdatamodeld */,
 				FF6D7F6F1EFC45C9006B6368 /* Supporting Files */,
 			);
@@ -77,6 +79,9 @@
 		FF6D7F6F1EFC45C9006B6368 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FF6D7F7E1EFC45C9006B6368 /* Assets.xcassets */,
+				FF6D7F801EFC45C9006B6368 /* LaunchScreen.storyboard */,
+				FF6D7F831EFC45C9006B6368 /* Info.plist */,
 				FF6D7F701EFC45C9006B6368 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -155,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF6D7F7D1EFC45C9006B6368 /* Receipts__.xcdatamodeld in Sources */,
+				FF6D7F8B1EFC4D4B006B6368 /* AddReceiptViewController.m in Sources */,
 				FF6D7F771EFC45C9006B6368 /* ViewController.m in Sources */,
 				FF6D7F741EFC45C9006B6368 /* AppDelegate.m in Sources */,
 				FF6D7F711EFC45C9006B6368 /* main.m in Sources */,
