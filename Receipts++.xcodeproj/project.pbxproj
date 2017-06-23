@@ -14,7 +14,7 @@
 		FF6D7F7D1EFC45C9006B6368 /* Receipts__.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF6D7F7B1EFC45C9006B6368 /* Receipts__.xcdatamodeld */; };
 		FF6D7F7F1EFC45C9006B6368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF6D7F7E1EFC45C9006B6368 /* Assets.xcassets */; };
 		FF6D7F821EFC45C9006B6368 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF6D7F801EFC45C9006B6368 /* LaunchScreen.storyboard */; };
-		FF6D7F8B1EFC4D4B006B6368 /* AddReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6D7F8A1EFC4D4B006B6368 /* AddReceiptViewController.m */; };
+		FF6D7F8C1EFC71EE006B6368 /* AddReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF6D7F8A1EFC4D4B006B6368 /* AddReceiptViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,8 +159,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF6D7F8C1EFC71EE006B6368 /* AddReceiptViewController.m in Sources */,
 				FF6D7F7D1EFC45C9006B6368 /* Receipts__.xcdatamodeld in Sources */,
-				FF6D7F8B1EFC4D4B006B6368 /* AddReceiptViewController.m in Sources */,
 				FF6D7F771EFC45C9006B6368 /* ViewController.m in Sources */,
 				FF6D7F741EFC45C9006B6368 /* AppDelegate.m in Sources */,
 				FF6D7F711EFC45C9006B6368 /* main.m in Sources */,
@@ -322,6 +322,7 @@
 				FF6D7F881EFC45C9006B6368 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

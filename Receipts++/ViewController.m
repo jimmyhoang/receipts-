@@ -27,58 +27,32 @@ NSString * const cellReuseIdentifier = @"cellReuseIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.receiptsPrinted = [NSSet set];
-    self.context         = self.persistentContainer.viewContext;
-    
+    self.receiptsPrinted       = [NSSet set];
+    self.context               = self.persistentContainer.viewContext;
+
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellReuseIdentifier];
     [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:headerReuseIdentifier];
-    
-//    Tag* business = [[Tag alloc] initWithContext:self.context];
-//    business.tagName = @"Business";
-//    
-//    Receipt* pencils = [[Receipt alloc] initWithContext:self.context];
-//    pencils.note = @"Shit load of pencils";
-//    pencils.amount = 500;
-//    
-//    business.receipt = [business.receipt setByAddingObject:pencils];
-//    
-//    
-//    Tag* home = [[Tag alloc] initWithContext:self.context];
-//    home.tagName = @"Home";
-//    
-//    Receipt* chicken = [[Receipt alloc] initWithContext:self.context];
-//    chicken.note = @"Shit load of chickens";
-//    chicken.amount = 500;
-//    
-//    home.receipt = [home.receipt setByAddingObject:chicken];
-//
-//    [self saveContext];
-    
-    
-    
-    [self fetchTags];
-//    [self fetchReceipts];
+    [self refreshTags];
 }
 
-#pragma mark - Fetching
-//-(void)fetchReceipts {
-//    NSFetchRequest* fetchRequest             = [Receipt fetchRequest];
-//    NSSortDescriptor* receiptSortDescription = [NSSortDescriptor sortDescriptorWithKey:@"note" ascending:YES];
-//    [fetchRequest setSortDescriptors:@[receiptSortDescription]];
-//    
-//    NSError* receiptFetchError = nil;
-//    
-//    self.receipts = [self.context executeFetchRequest:fetchRequest error:&receiptFetchError];
-//    
-//    if (receiptFetchError) {
-//        NSLog(@"Error fetching receipts");
-//        NSLog(@"Fetch Error: %@",receiptFetchError.localizedDescription);
-//    }
-//    
-//    NSLog(@"%@",self.receipts);
-//    
-//    [self.tableView reloadData];
-//}
+-(void)viewWillAppear:(BOOL)animated {
+    [self refreshTags];
+}
+
+
+#pragma mark - Tag Methods
+-(void)createTags {
+    Tag* personal    = [[Tag alloc] initWithContext:self.context];
+    personal.tagName = @"Personal";
+    
+    Tag* family    = [[Tag alloc] initWithContext:self.context];
+    family.tagName = @"Family";
+    
+    Tag* business    = [[Tag alloc] initWithContext:self.context];
+    business.tagName = @"Business";
+    
+    [self saveContext];
+}
 
 -(void)fetchTags {
     NSFetchRequest* fetchRequest        = [Tag fetchRequest];
@@ -93,8 +67,15 @@ NSString * const cellReuseIdentifier = @"cellReuseIdentifier";
         NSLog(@"Error fetching tags");
         NSLog(@"Fetch Error: %@",tagFetchError.localizedDescription);
     }
+
+}
+
+-(void)refreshTags {
+    [self fetchTags];
     
-    NSLog(@"%@",self.tags);
+    if (self.tags.count == 0) {
+        [self createTags];
+    }
     
     [self.tableView reloadData];
 }
@@ -117,13 +98,9 @@ NSString * const cellReuseIdentifier = @"cellReuseIdentifier";
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellReuseIdentifier forIndexPath:indexPath];
     Tag* tag              = self.tags[indexPath.section];
-    Receipt* receipt      = [tag.receipt anyObject];
-    
-    while ([self.receiptsPrinted containsObject:receipt]) {
-        receipt = [tag.receipt anyObject];
-    }
-    
-    self.receiptsPrinted = [self.receiptsPrinted setByAddingObject:receipt];
+    NSArray* allTags      = [tag.receipt allObjects];
+    Receipt* receipt      = allTags[indexPath.row];
+
     cell.textLabel.text  = receipt.note;
 
     return cell;
@@ -143,7 +120,10 @@ NSString * const cellReuseIdentifier = @"cellReuseIdentifier";
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if([segue.identifier isEqualToString:addReceiptSegue]) {
-        
+        AddReceiptViewController* addVC = (AddReceiptViewController*)segue.destinationViewController;
+        addVC.delegate                  = self;
+        addVC.persistentContainer       = self.persistentContainer;
+        addVC.tags                      = self.tags;
     }
 }
 
@@ -157,6 +137,15 @@ NSString * const cellReuseIdentifier = @"cellReuseIdentifier";
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
+}
+
+#pragma mark - AddReceiptViewControllerDelegate
+
+-(void)reloadData {
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self.tableView reloadData];
+    }];
+    
 }
 
 @end

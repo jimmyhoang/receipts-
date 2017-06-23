@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddReceiptViewController.h"
 @import CoreData;
 
 @interface ViewController : UIViewController
 <
 UITableViewDelegate,
-UITableViewDataSource
+UITableViewDataSource,
+AddReceiptViewControllerDelegate
 >
 
 @property (nonatomic, strong) NSPersistentContainer* persistentContainer;

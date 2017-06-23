@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="k2Y-aS-SG1" firstAttribute="top" secondItem="ZUh-Yn-eLt" secondAttribute="bottom" constant="20" id="3IZ-PZ-tjl"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="k2Y-aS-SG1" secondAttribute="bottom" constant="20" id="3Jl-7m-vPI"/>
@@ -91,6 +91,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ay7-rb-f7m" id="P4A-OB-jEM"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tWQ-Q2-Mxk">
                                 <rect key="frame" x="16" y="159" width="168" height="30"/>
@@ -100,6 +103,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ay7-rb-f7m" id="whL-YW-hP6"/>
+                                </connections>
                             </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="WmZ-0L-2fM">
                                 <rect key="frame" x="0.0" y="310" width="375" height="216"/>
@@ -113,17 +119,28 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOI-ff-Vly">
                                 <rect key="frame" x="71" y="560" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelPressed:" destination="ay7-rb-f7m" eventType="touchUpInside" id="zv6-Vo-VCA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GB-DW-arc">
                                 <rect key="frame" x="267" y="560" width="37" height="30"/>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="donePressed:" destination="ay7-rb-f7m" eventType="touchUpInside" id="SbM-Pz-1ju"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qL3-DJ-OFS">
                                 <rect key="frame" x="208" y="121" width="151" height="139"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ay7-rb-f7m" id="spk-zz-PWE"/>
+                                    <outlet property="delegate" destination="ay7-rb-f7m" id="wfw-6f-3l9"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="tWQ-Q2-Mxk" firstAttribute="leading" secondItem="PWh-7U-H2a" secondAttribute="leadingMargin" id="1kl-F7-ttA"/>
                             <constraint firstAttribute="trailing" secondItem="WmZ-0L-2fM" secondAttribute="trailing" id="4kr-8F-EO3"/>
@@ -145,6 +162,12 @@
                             <constraint firstItem="qL3-DJ-OFS" firstAttribute="top" secondItem="tjD-oi-Bux" secondAttribute="bottom" constant="54" id="ygv-Ma-Xzh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="amountTextField" destination="5IC-3h-0BI" id="IUS-5y-SNt"/>
+                        <outlet property="descriptionTextField" destination="tWQ-Q2-Mxk" id="xJB-1s-TNL"/>
+                        <outlet property="tableView" destination="qL3-DJ-OFS" id="yb2-G4-CIM"/>
+                        <outlet property="timestampDatePicker" destination="WmZ-0L-2fM" id="6ea-7f-Faf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rVA-DC-swB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
